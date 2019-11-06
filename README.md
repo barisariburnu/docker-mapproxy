@@ -35,16 +35,14 @@ docker build -t barisariburnu/mapproxy .
 To run a mapproxy container do:
 
 ```
-docker run --name "mapproxy" -p 8080:8080 -d -t \
-     barisariburnu/docker-mapproxy
+docker run --name "mapproxy" -p 8080:8080 -d -t barisariburnu/docker-mapproxy
 ```
 
 Typically you will want to mount the mapproxy volume, otherwise you won't be able to edit the configs:
 
 ```
 mkdir mapproxy
-docker run --name "mapproxy" -p 8080:8080 -d -t -v \
-   `pwd`/mapproxy:/mapproxy barisariburnu/docker-mapproxy
+docker run --name "mapproxy" -p 8080:8080 -d -t -v `pwd`/mapproxy:/mapproxy barisariburnu/docker-mapproxy
 ```
 
 The first time your run the container, mapproxy basic default configuration files will be written into ``./mapproxy``. You should read the mapproxy documentation on how to configure these files and create appropriate service definitions for your WMS services. Then restart the container to activate your changes.
